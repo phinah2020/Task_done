@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile - Meetup Q&A</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/userprofile.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">P</div>
+        <span class="logo-text">Project</span>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="#" class="nav-item active">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <span class="nav-text">Analytics</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <span class="nav-text">Users</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Content</div>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <polyline points="14,2 14,8 20,8" />
+            </svg>
+            <span class="nav-text">Projects</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            <span class="nav-text">Files</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span class="nav-text">Messages</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Settings</div>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+              />
+            </svg>
+            <span class="nav-text">Settings</span>
+          </a>
+          <a href="#" class="nav-item">
+            <svg
+              class="nav-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+              <polyline points="16,17 21,12 16,7" />
+              <line x1="21" y1="12" x2="9" y2="12" />
+            </svg>
+            <span class="nav-text">Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-left">
+        <nav class="breadcrumb">
+          <span>Dashboard</span>
+          <span class="breadcrumb-separator">/</span>
+          <span>Overview</span>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search anything..."
+          />
+        </div>
+
+        <div class="user-profile">
+          <div class="user-avatar">JD</div>
+          <span>John Doe</span>
+        </div>
+      </div>
+    </header>
+    <main class="main-content" id="mainContent">
+      <div class="container">
+        <!-- Profile Header -->
+        <div class="sub-header">
+          <div class="profile-info">
+            <div class="avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="user-details">
+              <h1>Sarah Johnson</h1>
+              <div class="user-meta">
+                <div class="meta-item">
+                  <i class="fas fa-envelope"></i>
+                  <span>sarah.johnson@email.com</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>Joined December 2024</span>
+                </div>
+                <div class="meta-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>San Francisco, CA</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i class="fas fa-question-circle stat-icon"></i>
+            <div class="stat-number">23</div>
+            <div class="stat-label">Questions Posted</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-comments stat-icon"></i>
+            <div class="stat-number">47</div>
+            <div class="stat-label">Questions Commented On</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-calendar-check stat-icon"></i>
+            <div class="stat-number">5</div>
+            <div class="stat-label">Upcoming Meetups</div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-thumbs-up stat-icon"></i>
+            <div class="stat-number">156</div>
+            <div class="stat-label">Total Upvotes Received</div>
+          </div>
+        </div>
+
+        <!-- Top Questions Section -->
+        <div class="content-section">
+          <h2 class="section-title">
+            <i class="fas fa-star section-icon"></i>
+            Top Questions
+          </h2>
+
+          <div class="question-item">
+            <div class="question-title">
+              How do we implement real-time notifications in React applications?
+            </div>
+            <div class="question-meta">
+              <div class="vote-count">
+                <i class="fas fa-arrow-up"></i>
+                <span>24 upvotes</span>
+              </div>
+              <div>
+                <i class="fas fa-comments"></i>
+                <span>8 comments</span>
+              </div>
+              <div>
+                <i class="fas fa-calendar"></i>
+                <span>Posted 3 days ago</span>
+              </div>
+              <div class="badge">JavaScript Meetup</div>
+            </div>
+          </div>
+
+          <div class="question-item">
+            <div class="question-title">
+              Best practices for microservices architecture in 2025?
+            </div>
+            <div class="question-meta">
+              <div class="vote-count">
+                <i class="fas fa-arrow-up"></i>
+                <span>18 upvotes</span>
+              </div>
+              <div>
+                <i class="fas fa-comments"></i>
+                <span>12 comments</span>
+              </div>
+              <div>
+                <i class="fas fa-calendar"></i>
+                <span>Posted 1 week ago</span>
+              </div>
+              <div class="badge">DevOps Meetup</div>
+            </div>
+          </div>
+
+          <div class="question-item">
+            <div class="question-title">
+              How to optimize database queries for large-scale applications?
+            </div>
+            <div class="question-meta">
+              <div class="vote-count">
+                <i class="fas fa-arrow-up"></i>
+                <span>15 upvotes</span>
+              </div>
+              <div>
+                <i class="fas fa-comments"></i>
+                <span>6 comments</span>
+              </div>
+              <div>
+                <i class="fas fa-calendar"></i>
+                <span>Posted 2 weeks ago</span>
+              </div>
+              <div class="badge">Database Meetup</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Meetups Section -->
+        <div class="content-section">
+          <h2 class="section-title">
+            <i class="fas fa-calendar-alt section-icon"></i>
+            Upcoming Meetups
+          </h2>
+
+          <div class="meetup-item">
+            <div class="meetup-title">
+              Advanced React Patterns & Performance Optimization
+            </div>
+            <div class="meetup-date">
+              <i class="fas fa-clock"></i>
+              <span>January 15, 2025 at 7:00 PM</span>
+            </div>
+            <div class="meetup-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Tech Hub Downtown, Conference Room A</span>
+            </div>
+          </div>
+
+          <div class="meetup-item">
+            <div class="meetup-title">DevOps Best Practices Workshop</div>
+            <div class="meetup-date">
+              <i class="fas fa-clock"></i>
+              <span>January 22, 2025 at 6:30 PM</span>
+            </div>
+            <div class="meetup-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Innovation Center, Room 204</span>
+            </div>
+          </div>
+
+          <div class="meetup-item">
+            <div class="meetup-title">
+              Database Design & Optimization Techniques
+            </div>
+            <div class="meetup-date">
+              <i class="fas fa-clock"></i>
+              <span>January 28, 2025 at 7:30 PM</span>
+            </div>
+            <div class="meetup-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Virtual Event - Zoom Link Provided</span>
+            </div>
+          </div>
+
+          <div class="meetup-item">
+            <div class="meetup-title">
+              AI/ML Applications in Web Development
+            </div>
+            <div class="meetup-date">
+              <i class="fas fa-clock"></i>
+              <span>February 5, 2025 at 7:00 PM</span>
+            </div>
+            <div class="meetup-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>University Campus, Lecture Hall B</span>
+            </div>
+          </div>
+
+          <div class="meetup-item">
+            <div class="meetup-title">Mobile Development Trends 2025</div>
+            <div class="meetup-date">
+              <i class="fas fa-clock"></i>
+              <span>February 12, 2025 at 6:00 PM</span>
+            </div>
+            <div class="meetup-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Startup Incubator, Main Conference Room</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/userprofile.js"></script>
+    <script src="js/nav.js"></script>
+  </body>
+</html>

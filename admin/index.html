@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meetup Admin Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/adminindex.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">P</div>
+        <span class="logo-text">Project</span>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="#" class="nav-item active">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span class="nav-text">Analytics</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-users nav-icon"></i>
+            <span class="nav-text">Users</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Content</div>
+          <a href="#" class="nav-item">
+            <i class="fas fa-project-diagram nav-icon"></i>
+            <span class="nav-text">Projects</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-folder nav-icon"></i>
+            <span class="nav-text">Files</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-envelope nav-icon"></i>
+            <span class="nav-text">Messages</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Settings</div>
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog nav-icon"></i>
+            <span class="nav-text">Settings</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-left">
+        <nav class="breadcrumb">
+          <span>Dashboard</span>
+          <span class="breadcrumb-separator">/</span>
+          <span>Overview</span>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search anything..."
+          />
+        </div>
+
+        <div class="user-profile">
+          <div class="user-avatar">JD</div>
+          <span>John Doe</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+      <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+          <div class="header-left">
+            <h1><i class="fas fa-chart-line"></i> Admin Dashboard</h1>
+            <p>Manage your meetups and track engagement</p>
+          </div>
+          <div class="header-actions">
+            <button class="btn">
+              <i class="fas fa-bell"></i>
+              Notifications
+            </button>
+            <button class="btn btn-primary">
+              <i class="fas fa-plus"></i>
+              Create Meetup
+            </button>
+            <button class="btn">
+              <i class="fas fa-user-circle"></i>
+              Profile
+            </button>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-header">
+              <div
+                class="stat-icon"
+                style="background: linear-gradient(45deg, #e74c3c, #c0392b)"
+              >
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+            </div>
+            <div class="stat-value">12</div>
+            <div class="stat-label">Active Meetups</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+2 this month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div
+                class="stat-icon"
+                style="background: linear-gradient(45deg, #f39c12, #e67e22)"
+              >
+                <i class="fas fa-question-circle"></i>
+              </div>
+            </div>
+            <div class="stat-value">248</div>
+            <div class="stat-label">Total Questions</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+15% this week</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div
+                class="stat-icon"
+                style="background: linear-gradient(45deg, #27ae60, #2ecc71)"
+              >
+                <i class="fas fa-users"></i>
+              </div>
+            </div>
+            <div class="stat-value">1,432</div>
+            <div class="stat-label">Total Users</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+8% this month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-header">
+              <div
+                class="stat-icon"
+                style="background: linear-gradient(45deg, #9b59b6, #8e44ad)"
+              >
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+            </div>
+            <div class="stat-value">3,921</div>
+            <div class="stat-label">Total Votes</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i>
+              <span>+23% this week</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+          <!-- Recent Activity -->
+          <div class="content-card">
+            <div class="card-header">
+              <h2 class="card-title">
+                <i class="fas fa-clock"></i>
+                Recent Activity
+              </h2>
+            </div>
+
+            <div class="activity-item">
+              <div
+                class="activity-icon"
+                style="background: linear-gradient(45deg, #3498db, #74b9ff)"
+              >
+                <i class="fas fa-plus"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">
+                  New question posted in "React Best Practices" meetup
+                </div>
+                <div class="activity-time">2 minutes ago</div>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div
+                class="activity-icon"
+                style="background: linear-gradient(45deg, #27ae60, #2ecc71)"
+              >
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">5 new users registered</div>
+                <div class="activity-time">15 minutes ago</div>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div
+                class="activity-icon"
+                style="background: linear-gradient(45deg, #f39c12, #e67e22)"
+              >
+                <i class="fas fa-thumbs-up"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">
+                  Question about Vue.js received 10 upvotes
+                </div>
+                <div class="activity-time">1 hour ago</div>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div
+                class="activity-icon"
+                style="background: linear-gradient(45deg, #9b59b6, #8e44ad)"
+              >
+                <i class="fas fa-calendar"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">
+                  New meetup "AI & Machine Learning" created
+                </div>
+                <div class="activity-time">3 hours ago</div>
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <div
+                class="activity-icon"
+                style="background: linear-gradient(45deg, #e74c3c, #c0392b)"
+              >
+                <i class="fas fa-comment"></i>
+              </div>
+              <div class="activity-content">
+                <div class="activity-text">
+                  New comment on "JavaScript Frameworks" question
+                </div>
+                <div class="activity-time">5 hours ago</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions & Top Questions -->
+          <div>
+            <!-- Quick Actions -->
+            <div class="content-card" style="margin-bottom: 2rem">
+              <div class="card-header">
+                <h2 class="card-title">
+                  <i class="fas fa-bolt"></i>
+                  Quick Actions
+                </h2>
+              </div>
+
+              <div class="quick-actions">
+                <a href="#" class="action-btn">
+                  <div
+                    class="action-icon"
+                    style="background: linear-gradient(45deg, #3498db, #74b9ff)"
+                  >
+                    <i class="fas fa-plus"></i>
+                  </div>
+                  <div class="action-content">
+                    <h3>Create Meetup</h3>
+                    <p>Start a new Q&A session</p>
+                  </div>
+                </a>
+
+                <a href="#" class="action-btn">
+                  <div
+                    class="action-icon"
+                    style="background: linear-gradient(45deg, #27ae60, #2ecc71)"
+                  >
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="action-content">
+                    <h3>Manage Users</h3>
+                    <p>View and moderate users</p>
+                  </div>
+                </a>
+
+                <a href="#" class="action-btn">
+                  <div
+                    class="action-icon"
+                    style="background: linear-gradient(45deg, #f39c12, #e67e22)"
+                  >
+                    <i class="fas fa-chart-bar"></i>
+                  </div>
+                  <div class="action-content">
+                    <h3>Analytics</h3>
+                    <p>View detailed reports</p>
+                  </div>
+                </a>
+
+                <a href="#" class="action-btn">
+                  <div
+                    class="action-icon"
+                    style="background: linear-gradient(45deg, #9b59b6, #8e44ad)"
+                  >
+                    <i class="fas fa-cog"></i>
+                  </div>
+                  <div class="action-content">
+                    <h3>Settings</h3>
+                    <p>Configure platform</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Top Questions -->
+            <div class="content-card">
+              <div class="card-header">
+                <h2 class="card-title">
+                  <i class="fas fa-fire"></i>
+                  Trending Questions
+                </h2>
+              </div>
+
+              <div class="question-item">
+                <div class="question-votes">
+                  <div class="vote-count">42</div>
+                  <div class="vote-label">votes</div>
+                </div>
+                <div class="question-content">
+                  <div class="question-title">
+                    What are the best practices for React hooks?
+                  </div>
+                  <div class="question-meta">
+                    <span>React Meetup</span>
+                    <span>2 hours ago</span>
+                    <span>8 comments</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="question-item">
+                <div class="question-votes">
+                  <div class="vote-count">38</div>
+                  <div class="vote-label">votes</div>
+                </div>
+                <div class="question-content">
+                  <div class="question-title">
+                    How to optimize database queries?
+                  </div>
+                  <div class="question-meta">
+                    <span>Backend Dev</span>
+                    <span>4 hours ago</span>
+                    <span>12 comments</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="question-item">
+                <div class="question-votes">
+                  <div class="vote-count">29</div>
+                  <div class="vote-label">votes</div>
+                </div>
+                <div class="question-content">
+                  <div class="question-title">
+                    Best deployment strategies for microservices?
+                  </div>
+                  <div class="question-meta">
+                    <span>DevOps</span>
+                    <span>1 day ago</span>
+                    <span>5 comments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../js/adminindex.js"></script>
+  </body>
+</html>

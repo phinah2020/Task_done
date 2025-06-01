@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Fundamentals Meetup - Questions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+  </head>
+  <body>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">P</div>
+        <span class="logo-text">Project</span>
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Main</div>
+          <a href="#" class="nav-item active">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-text">Dashboard</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span class="nav-text">Analytics</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-users nav-icon"></i>
+            <span class="nav-text">Users</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Content</div>
+          <a href="#" class="nav-item">
+            <i class="fas fa-project-diagram nav-icon"></i>
+            <span class="nav-text">Projects</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-folder nav-icon"></i>
+            <span class="nav-text">Files</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-envelope nav-icon"></i>
+            <span class="nav-text">Messages</span>
+          </a>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-section-title">Settings</div>
+          <a href="#" class="nav-item">
+            <i class="fas fa-cog nav-icon"></i>
+            <span class="nav-text">Settings</span>
+          </a>
+          <a href="#" class="nav-item">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="header-left">
+        <nav class="breadcrumb">
+          <span>Dashboard</span>
+          <span class="breadcrumb-separator">/</span>
+          <span>Overview</span>
+        </nav>
+      </div>
+
+      <div class="header-right">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search anything..."
+          />
+        </div>
+
+        <div class="user-profile">
+          <div class="user-avatar">JD</div>
+          <span>John Doe</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+      <div class="container">
+        <header class="sub-header">
+          <h1><i class="fas fa-users"></i> JavaScript Fundamentals Meetup</h1>
+          <p>Ask questions, vote, and engage with the community</p>
+        </header>
+
+        <!-- Question Form -->
+        <div class="question-form">
+          <h2><i class="fas fa-question-circle"></i> Ask a Question</h2>
+          <form id="questionForm">
+            <div class="form-group">
+              <label for="questionTitle">Question Title</label>
+              <input
+                type="text"
+                id="questionTitle"
+                placeholder="What would you like to know?"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="questionDescription">Description (Optional)</label>
+              <textarea
+                id="questionDescription"
+                rows="3"
+                placeholder="Provide more details about your question..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i>
+              Post Question
+            </button>
+          </form>
+        </div>
+
+        <!-- Questions Section -->
+        <div class="questions-section">
+          <h2 class="section-title">
+            <i class="fas fa-comments"></i>
+            Questions & Discussion
+          </h2>
+
+          <div class="sort-controls">
+            <button class="sort-btn active">
+              <i class="fas fa-clock"></i> Newest
+            </button>
+            <button class="sort-btn">
+              <i class="fas fa-fire"></i> Most Voted
+            </button>
+            <button class="sort-btn">
+              <i class="fas fa-history"></i> Oldest
+            </button>
+          </div>
+
+          <div class="questions-list">
+            <!-- Question 1 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-content">
+                  <h3>What are the differences between let, const, and var?</h3>
+                  <p>
+                    I'm confused about when to use each type of variable
+                    declaration in JavaScript. Can someone explain the key
+                    differences?
+                  </p>
+                  <div class="question-meta">
+                    <span><i class="fas fa-user"></i> Sarah Chen</span>
+                    <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                    <span><i class="fas fa-comments"></i> 3 comments</span>
+                  </div>
+                </div>
+                <div class="voting-section">
+                  <button class="vote-btn" onclick="toggleLike(this)">
+                    <i class="fas fa-thumbs-up"></i>
+                  </button>
+                  <span class="vote-count">15</span>
+                  <button class="vote-btn" onclick="toggleDislike(this)">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="question-actions">
+                <button class="action-btn" onclick="toggleComments(this)">
+                  <i class="fas fa-comment"></i>
+                  Comment
+                </button>
+              </div>
+
+              <div class="comment-form">
+                <textarea
+                  class="comment-input"
+                  placeholder="Add a comment..."
+                  rows="2"
+                ></textarea>
+                <button class="btn">
+                  <i class="fas fa-paper-plane"></i>
+                  Post
+                </button>
+              </div>
+
+              <div class="comments-section">
+                <div class="comment">
+                  <div class="comment-author">Mike Johnson</div>
+                  <div>
+                    Great question! The main difference is scope and hoisting
+                    behavior. Let and const have block scope while var has
+                    function scope.
+                  </div>
+                </div>
+                <div class="comment">
+                  <div class="comment-author">Anna Rodriguez</div>
+                  <div>
+                    I'd recommend using const by default, let when you need to
+                    reassign, and avoid var in modern JavaScript.
+                  </div>
+                </div>
+                <div class="comment">
+                  <div class="comment-author">Tom Wilson</div>
+                  <div>
+                    Also worth noting that const doesn't make objects immutable,
+                    just the binding!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-content">
+                  <h3>How do closures work in JavaScript?</h3>
+                  <p>
+                    Can someone explain closures with practical examples? I keep
+                    hearing about them but don't understand the concept.
+                  </p>
+                  <div class="question-meta">
+                    <span><i class="fas fa-user"></i> David Kim</span>
+                    <span><i class="fas fa-clock"></i> 4 hours ago</span>
+                    <span><i class="fas fa-comments"></i> 2 comments</span>
+                  </div>
+                </div>
+                <div class="voting-section">
+                  <button class="vote-btn" onclick="toggleLike(this)">
+                    <i class="fas fa-thumbs-up"></i>
+                  </button>
+                  <span class="vote-count">12</span>
+                  <button class="vote-btn" onclick="toggleDislike(this)">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="question-actions">
+                <button class="action-btn" onclick="toggleComments(this)">
+                  <i class="fas fa-comment"></i>
+                  Comment
+                </button>
+              </div>
+
+              <div class="comment-form">
+                <textarea
+                  class="comment-input"
+                  placeholder="Add a comment..."
+                  rows="2"
+                ></textarea>
+                <button class="btn">
+                  <i class="fas fa-paper-plane"></i>
+                  Post
+                </button>
+              </div>
+
+              <div class="comments-section">
+                <div class="comment">
+                  <div class="comment-author">Lisa Wang</div>
+                  <div>
+                    Closures are functions that have access to variables from
+                    their outer scope even after the outer function returns.
+                  </div>
+                </div>
+                <div class="comment">
+                  <div class="comment-author">Alex Cooper</div>
+                  <div>
+                    Think of it like a function "remembering" the environment
+                    where it was created. Very useful for creating private
+                    variables!
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-card">
+              <div class="question-header">
+                <div class="question-content">
+                  <h3>
+                    What's the difference between == and === in JavaScript?
+                  </h3>
+                  <div class="question-meta">
+                    <span><i class="fas fa-user"></i> Emma Thompson</span>
+                    <span><i class="fas fa-clock"></i> 6 hours ago</span>
+                    <span><i class="fas fa-comments"></i> 1 comment</span>
+                  </div>
+                </div>
+                <div class="voting-section">
+                  <button class="vote-btn" onclick="toggleLike(this)">
+                    <i class="fas fa-thumbs-up"></i>
+                  </button>
+                  <span class="vote-count">8</span>
+                  <button class="vote-btn" onclick="toggleDislike(this)">
+                    <i class="fas fa-thumbs-down"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="question-actions">
+                <button class="action-btn" onclick="toggleComments(this)">
+                  <i class="fas fa-comment"></i>
+                  Comment
+                </button>
+              </div>
+
+              <div class="comment-form">
+                <textarea
+                  class="comment-input"
+                  placeholder="Add a comment..."
+                  rows="2"
+                ></textarea>
+                <button class="btn">
+                  <i class="fas fa-paper-plane"></i>
+                  Post
+                </button>
+              </div>
+
+              <div class="comments-section">
+                <div class="comment">
+                  <div class="comment-author">Ryan Miller</div>
+                  <div>
+                    == does type coercion while === checks both value and type.
+                    Always use === unless you specifically need type coercion.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="js/nav.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>

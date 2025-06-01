@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - Meetup Manager</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/meetup.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">P</div>
+            <span class="logo-text">Project</span>
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Main</div>
+                <a href="#" class="nav-item active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 0-8-3-8-8s3-8 8-8 8 3 8 8-3 8-8 8z"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <span class="nav-text">Analytics</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span class="nav-text">Users</span>
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Content</div>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                    </svg>
+                    <span class="nav-text">Projects</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span class="nav-text">Files</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span class="nav-text">Messages</span>
+                </a>
+            </div>
+            
+            <div class="nav-section">
+                <div class="nav-section-title">Settings</div>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    <span class="nav-text">Settings</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16,17 21,12 16,7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span class="nav-text">Logout</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-left">
+            <nav class="breadcrumb">
+                <span>Dashboard</span>
+                <span class="breadcrumb-separator">/</span>
+                <span>Overview</span>
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <div class="search-box">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search anything...">
+            </div>
+            
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <span>John Doe</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+    <div class="container">
+      <div class="sub-header">
+        <h1><i class="fas fa-users-cog"></i> Admin Dashboard</h1>
+        <p>Manage your meetups with ease</p>
+      </div>
+
+      <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i>
+        <span id="successText">Operation completed successfully!</span>
+      </div>
+
+      <div class="admin-dashboard">
+        <!-- Create Meetup Form -->
+        <div class="glass-card form-section">
+          <h2><i class="fas fa-plus-circle"></i> Create New Meetup</h2>
+          <form id="createMeetupForm">
+            <div class="form-group">
+              <label for="meetupTitle">Meetup Title</label>
+              <input
+                type="text"
+                id="meetupTitle"
+                class="form-control"
+                placeholder="Enter meetup title..."
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="meetupDate">Date & Time</label>
+              <input
+                type="datetime-local"
+                id="meetupDate"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="meetupDescription">Description</label>
+              <textarea
+                id="meetupDescription"
+                class="form-control"
+                placeholder="Describe your meetup..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Tags</label>
+              <div class="tags-search-container">
+                <div class="tags-input-container" id="tagsContainer">
+                  <input
+                    type="text"
+                    class="tag-input"
+                    id="tagInput"
+                    placeholder="Search and select tags..."
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="tags-dropdown" id="tagsDropdown">
+                  <!-- Tag suggestions will appear here -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Create Meetup
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Meetups List -->
+        <div class="glass-card">
+          <h2><i class="fas fa-calendar-alt"></i> Your Meetups</h2>
+          <div id="meetupsList" class="meetups-list">
+            <!-- Meetups will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <script src="../js/meetup.js"></script>
+    <script src="../js/nav.js"></script>
+  </body>
+</html>

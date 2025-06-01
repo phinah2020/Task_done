@@ -1,0 +1,209 @@
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #3498db;
+  --text-color: #fff;
+  --error-color: rgb(255, 87, 87);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-hover: rgba(255, 255, 255, 0.3);
+  --icon-color: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("imu.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.wpaper {
+  width: 90%;
+  max-width: 400px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-color);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.wpaper h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  font-size: 16px;
+  color: var(--text-color);
+  padding: 20px 45px 20px 20px;
+  transition: all 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: var(--accent-color);
+  background: var(--glass-hover);
+}
+
+.input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--icon-color);
+}
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.remember label {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.remember input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: rgba(255, 255, 255, 0.5);
+}
+
+.remember a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background: var(--accent-color);
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text-color);
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--primary-color);
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.register-link p {
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.register-link a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.error-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--error-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.error-content {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error-content button {
+  background: var(--glass-bg);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.error-content button:hover {
+  background: var(--glass-hover);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .wpaper {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .wpaper h1 {
+    font-size: 1.8rem;
+  }
+
+  .input-box input {
+    font-size: 0.9rem;
+  }
+}
