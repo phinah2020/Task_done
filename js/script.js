@@ -1,15 +1,10 @@
 // Form validation functions
-function showError(message) {
-  const errorMessage = document.createElement("div");
-  errorMessage.className = "error-popup";
-  errorMessage.innerHTML = `
-        <div class="error-content">
-            <p>${message}</p>
-            <button onclick="this.parentElement.parentElement.remove()">Close</button>
-        </div>
-    `;
-  document.body.appendChild(errorMessage);
-  setTimeout(() => errorMessage.remove(), 3000);
+function showError(message, isSuccess = false) {
+  const notification = document.createElement("div");
+  notification.className = `notification ${isSuccess ? 'success' : 'error'}`;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  setTimeout(() => notification.remove(), 3000);
 }
 
 // Login form handling
@@ -33,6 +28,8 @@ if (loginForm) {
 const signupForm = document.getElementById("signupForm");
 if (signupForm) {
   signupForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // Prevent default form submission
+    
     const fullname = document.getElementById("fullname").value;
     const email = document.getElementById("email").value;
     const username = document.getElementById("username").value;
@@ -41,26 +38,36 @@ if (signupForm) {
 
     // Basic validation
     if (!fullname || !email || !username || !password || !confirmPassword) {
-      e.preventDefault();
       showError("Please fill in all fields");
-      return false;
+      return;
     }
 
     // Password validation
     if (password !== confirmPassword) {
-      e.preventDefault();
       showError("Passwords do not match!");
-      return false;
+      return;
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      e.preventDefault();
       showError("Please enter a valid email address");
-      return false;
+      return;
     }
 
-    // Let the form submit normally to register.php
+    // Store user data in localStorage (for demo purposes)
+    localStorage.setItem('user', JSON.stringify({
+      fullname,
+      email,
+      username
+    }));
+
+    // Show success message
+    showError("Registration successful! Redirecting to login...");
+
+    // Redirect to signin page after a short delay
+    setTimeout(() => {
+      window.location.href = 'signin.html';
+    }, 2000);
   });
 }
