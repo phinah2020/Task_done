@@ -1,5 +1,5 @@
 // Form validation functions
-function showError(message, isSuccess = false) {
+ffunction showError(message, isSuccess = false) {
   const notification = document.createElement("div");
   notification.className = `notification ${isSuccess ? 'success' : 'error'}`;
   notification.textContent = message;
@@ -69,5 +69,3 @@ if (signupForm) {
     setTimeout(() => {
       window.location.href = 'signin.html';
     }, 2000);
-  });
-}
